@@ -55,25 +55,33 @@ import { isValueObject } from './predicates/isValueObject';
  * and `hashCode()`.
  */
 export function is(valueA, valueB) {
+  // 判断两个值严格相等或者两个值都是 NaN
   if (valueA === valueB || (valueA !== valueA && valueB !== valueB)) {
     return true;
   }
+  // 两个值中有一个非值
   if (!valueA || !valueB) {
     return false;
   }
+  // 两个值的 valueOf 都是函数
   if (
     typeof valueA.valueOf === 'function' &&
     typeof valueB.valueOf === 'function'
   ) {
+    // 获取两个数的 valueOf
+    // ? 可能是hashCode
     valueA = valueA.valueOf();
     valueB = valueB.valueOf();
+    // 判断两个值严格相等或者两个值都是 NaN
     if (valueA === valueB || (valueA !== valueA && valueB !== valueB)) {
       return true;
     }
+    // 两个值中有一个非值
     if (!valueA || !valueB) {
       return false;
     }
   }
+  // 如果两个值都是 ValueObject 返回它们的 equals 结果
   return !!(
     isValueObject(valueA) &&
     isValueObject(valueB) &&
