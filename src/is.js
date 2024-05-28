@@ -53,6 +53,8 @@ import { isValueObject } from './predicates/isValueObject';
  *
  * All Immutable collections are Value Objects: they implement `equals()`
  * and `hashCode()`.
+ * 
+ * 判断两个值是否相等, 使用 sameValue 算法
  */
 export function is(valueA, valueB) {
   // 判断两个值严格相等或者两个值都是 NaN

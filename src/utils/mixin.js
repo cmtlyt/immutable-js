@@ -1,5 +1,6 @@
 /**
  * Contributes additional methods to a constructor
+ * 将方法添加到对象的原型上
  */
 export default function mixin(ctor, methods) {
   const keyCopier = key => {

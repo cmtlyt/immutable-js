@@ -1,3 +1,7 @@
+/**
+ * 判断是否是伪数组
+ * array string object<{length:integer}>
+ */
 export default function isArrayLike(value) {
   if (Array.isArray(value) || typeof value === 'string') {
     return true;
