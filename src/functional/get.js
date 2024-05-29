@@ -2,7 +2,7 @@ import { isImmutable } from '../predicates/isImmutable';
 import { has } from './has';
 
 /**
- * 从几何中获取 key 对应的值, 如果不存在则返回 notSetValue
+ * 从集合中获取 key 对应的值, 如果不存在则返回 notSetValue
  */
 export function get(collection, key, notSetValue) {
   if(isImmutable(collection)){
